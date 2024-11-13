@@ -4,12 +4,21 @@ import requests
 import xml.etree.ElementTree as ET
 import datetime
 from typing import List, Dict
-
+import os
+from dotenv import load_dotenv
 app = FastAPI()
 
-uri = "bolt://localhost:7687"  
-username = "neo4j"             
-password = "rootdbms"          
+
+load_dotenv()  # This loads the variables from the .env file
+
+uri = os.getenv("NEO4J_URI")
+username = os.getenv("NEO4J_USERNAME")
+password = os.getenv("NEO4J_PASSWORD")
+# driver = GraphDatabase.driver(uri, auth=(username, password))
+
+# uri = "bolt://localhost:7687"  
+# username = "neo4j"             
+# password = "rootdbms"          
 driver = GraphDatabase.driver(uri, auth=(username, password))
 
 def fetch_papers_from_arxiv(topic: str) -> List[Dict]:

@@ -3,3 +3,4 @@ requests
 neo4j
 fastapi
 uvicorn
+dotenv

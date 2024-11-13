@@ -4,11 +4,17 @@ import requests
 import time
 import streamlit as st
 from neo4j import GraphDatabase
-
+import os
+from dotenv import load_dotenv
 # Neo4j credentials
 URI = "bolt://localhost:7687"
-AUTH = ("neo4j", "rootdbms")
 
+load_dotenv()  # This loads the variables from the .env file
+
+URI = os.getenv("NEO4J_URI")
+username = os.getenv("NEO4J_USERNAME")
+password = os.getenv("NEO4J_PASSWORD")
+AUTH = (username, password)
 # Start FastAPI as a subprocess
 def start_fastapi():
     subprocess.run(["uvicorn", "store_papers:app", "--host", "0.0.0.0", "--port", "8000"])
