@@ -1,0 +1,36 @@
+# Python-specific
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.log
+
+# Virtual environments
+env/
+venv/
+.venv/
+
+# Neo4j logs and temp files
+data/
+import/
+logs/
+*.db
+
+# Streamlit-specific
+.streamlit/
+
+# FastAPI-specific
+*.pid
+*.db-journal
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# Secrets
+*.env
+secrets.toml
+
+# Ignore Docker files (if not needed in the repository)
+*.dockerfile
+docker-compose.yml
